@@ -19,9 +19,10 @@ except ImportError:
 
         def __getattr__(self, _name: str) -> Any:
             msg = (
-                "Package 'google-generativeai' is required to use `Gemini15Embeddings`.\n"
-                "Install it with:\n\n    pip install google-generativeai\n"
-            )
+    "Package 'google-generativeai' is required to use "
+    "`Gemini15Embeddings`.\n"
+    "Install it with:\n\n    pip install google-generativeai\n"
+)
             raise ImportError(msg)
 
     genai = _MissingGenAI()  # type: ignore[assignment]
