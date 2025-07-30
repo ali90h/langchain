@@ -18,7 +18,6 @@ except ImportError:
         """Placeholder for google.generativeai when it's not installed."""
 
         def __getattr__(self, _name: str) -> Any:
-            # Define message separately to satisfy Ruff's EM101 rule
             msg = (
                 "Package 'google-generativeai' is required to use `Gemini15Embeddings`.\n"
                 "Install it with:\n\n    pip install google-generativeai\n"
@@ -26,6 +25,7 @@ except ImportError:
             raise ImportError(msg)
 
     genai = _MissingGenAI()  # type: ignore[assignment]
+
 
 
 class Gemini15Embeddings(Embeddings):
